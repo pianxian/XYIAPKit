@@ -253,6 +253,14 @@ typedef void (^XYStoreSuccessBlock)(void);
              if (success) {
                  success(products.firstObject);
              }
+         }else{
+             NSString *errorDesc = NSLocalizedStringFromTable(@"Unknown product identifier", @"XYIAPKit", @"Error description");
+             NSError *error = [NSError errorWithDomain:XYStoreErrorDomain
+                                                  code:XYStoreErrorCodeUnknownProductIdentifier
+                                              userInfo:@{NSLocalizedDescriptionKey: errorDesc}];
+             if (failure) {
+                 failure(error);
+             }
          }
      } failure:failure];
 }
