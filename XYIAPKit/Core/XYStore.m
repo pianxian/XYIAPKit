@@ -691,7 +691,7 @@ typedef void (^XYStoreSuccessBlock)(void);
 {
     SKPayment *payment = transaction.payment;
     NSString* productIdentifier = payment.productIdentifier;
-    [queue finishTransaction:transaction];
+//    [queue finishTransaction:transaction];
     [self.transactionPersistor persistTransaction:transaction];
     
     XYAddPaymentParameters *wrapper = [self popAddPaymentParametersForIdentifier:productIdentifier];
